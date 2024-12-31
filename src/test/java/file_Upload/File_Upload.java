@@ -1,16 +1,14 @@
-package assignments;
+package file_Upload;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class A01_WebTable_Assignment {
+public class File_Upload {
 
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
@@ -19,13 +17,14 @@ public class A01_WebTable_Assignment {
 		
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
-		driver.get("https://datatables.net/");
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.get("https://the-internet.herokuapp.com/upload");
 		
-		List<WebElement> list=driver.findElements(By.xpath("//table//tr[td[text()=\"New York\"]]//td[1]"));
-		for(WebElement names:list) {
-			System.out.println(names.getText());
-		}
+		driver.findElement(By.id("file-upload")).sendKeys("D:\\#Software Testing\\Selenium\\TestData.xlsx");
+		
+		driver.findElement(By.id("file-submit")).click();
+		
+		
 
 	}
 

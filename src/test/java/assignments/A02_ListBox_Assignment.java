@@ -24,30 +24,35 @@ public class A02_ListBox_Assignment {
 		driver.get("https://the-internet.herokuapp.com/dropdown");
 
 		WebElement element=driver.findElement(By.id("dropdown"));
-		
-		Thread.sleep(3000);
-		Select opt1=new Select(element);
-		List<WebElement> list=opt1.getOptions();
-		
-		for(WebElement l1:list) {
-			String str1=l1.getText();
 
-			if(str1.equals("Option 1")) {
-				opt1.selectByVisibleText(str1);
-				System.out.println("Selected Option: "+str1);
-			}
-		}
-		
 		Thread.sleep(3000);
-		for(WebElement l2:list) {
-			String str2=l2.getText();
-			
-			if(str2.equals("Option 2")) {
-				opt1.selectByIndex(2);
-				System.out.println("Selected Option: "+str2);
-			}
+		Select opt1=new Select(element); //create select class for interact with list box or drop down
+		System.out.println(opt1.isMultiple());
+
+		opt1.selectByVisibleText("Option 1"); //select a option by visible text
+
+		List<WebElement> str=opt1.getAllSelectedOptions(); //it returns a list of selected options
+
+		for(WebElement s: str) {
+			System.out.println("Selected Option: "+s.getText()); //Option 1
 		}
-	
+
+		Thread.sleep(3000);
+
+		opt1.selectByIndex(2); //select a option by index
+
+		List<WebElement> str2=opt1.getAllSelectedOptions(); //it returns a list of selected options
+
+		for(WebElement s: str2) {
+			System.out.println("Selected Option: "+s.getText()); //Option 2
+		}
+
+
+
+
+
+
+
 	}
 
 }

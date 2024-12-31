@@ -50,7 +50,6 @@ public class A03_ScreenShot_Assignment {
 		File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		File des=new File(path+text+"_"+timeStamp+".png");
 		FileHandler.copy(src, des);
-
 	}
 
 }
