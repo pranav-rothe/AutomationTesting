@@ -18,13 +18,13 @@ public class ExcelFile_SingleRow {
 		
  		XSSFSheet sheet=workbook.getSheet("IPL TEAM");
  		
- 		int cellsize=sheet.getRow(0).getLastCellNum();
- 		System.out.println(cellsize);
+ 		int columnsize=sheet.getRow(0).getLastCellNum(); //when we print single row then we need a column size
+ 		System.out.println("Row Size: "+columnsize);
  		
  		//Particular or single row data
- 		for(int r=0;r<=cellsize-1;r++){
- 			String value=sheet.getRow(0).getCell(r).getStringCellValue();
- 			System.out.println(value);
+ 		for(int r=0;r<=columnsize-1;r++){
+ 			String value=sheet.getRow(6).getCell(r).getStringCellValue();
+ 			System.out.print(value+" | ");
  		}
 
 	}

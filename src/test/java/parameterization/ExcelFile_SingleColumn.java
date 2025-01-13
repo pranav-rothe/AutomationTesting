@@ -19,6 +19,7 @@ public class ExcelFile_SingleColumn {
 		XSSFSheet sheet=workbook.getSheet("IPL TEAM");
 		
 		int rowSize=sheet.getLastRowNum();
+		System.out.println("Column Size: "+rowSize);
 		
 		//Particular or single column data
 		for(int c=0;c<=rowSize-1;c++) {
