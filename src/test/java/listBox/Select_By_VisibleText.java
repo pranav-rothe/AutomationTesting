@@ -33,13 +33,13 @@ public class Select_By_VisibleText {
 		WebElement year=driver.findElement(By.xpath("//select[@id=\"year\"]"));
 		
 		Select s1=new Select(day);
-		s1.selectByVisibleText("22");
+		s1.selectByVisibleText("29");
 		
 		Select s2=new Select(month);
-		s2.selectByVisibleText("Jan");
+		s2.selectByVisibleText("May");
 		
 		Select s3=new Select(year);
-		s3.selectByVisibleText("2010");
+		s3.selectByVisibleText("1996");
 		
 		
 		driver.findElement(By.xpath("(//input[@name=\"sex\"])[2]")).click();
