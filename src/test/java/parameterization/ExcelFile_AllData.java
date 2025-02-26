@@ -12,53 +12,53 @@ public class ExcelFile_AllData {
 
 	public static void main(String[] args) throws IOException {
 
-		String path="C:\\Users\\Pranav\\eclipse-workspace\\AutomationTesting\\TestData\\TestData.xlsx"; 
+		String path = "C:\\Users\\Pranav\\eclipse-workspace\\AutomationTesting\\TestData\\TestData.xlsx";
 
-		FileInputStream file1=new FileInputStream(path); //get a path of that excel file
+		FileInputStream file1 = new FileInputStream(path); // get a path of that excel file
 
-		XSSFWorkbook workbook=new XSSFWorkbook(file1); //create excel file 
+		XSSFWorkbook workbook = new XSSFWorkbook(file1); // create excel file
 
-		XSSFSheet sheet=workbook.getSheet("IPL TEAM"); //fetching a sheet
+		XSSFSheet sheet = workbook.getSheet("IPL TEAM"); // fetching a sheet
 
-		int rowsize=sheet.getLastRowNum(); //returns a row size
-		int colsize=sheet.getRow(0).getLastCellNum(); //returns column size
+		int rowsize = sheet.getLastRowNum(); // returns a row size
+		int colsize = sheet.getRow(0).getLastCellNum(); // returns column size
 
-		System.out.println(rowsize); //print row size
-		System.out.println(colsize); //print column size
+		System.out.println(rowsize); // print row size
+		System.out.println(colsize); // print column size
 
-		for(int row=0;row<=rowsize;row++) { //row
+		for (int row = 0; row < rowsize; row++) { // row
 
-			XSSFRow rows=sheet.getRow(row);
+			XSSFRow rows = sheet.getRow(row+1);
 
-			for(int col=0;col<=colsize-1;col++) { //column
+			for (int col = 0; col <= colsize - 1; col++) { // column
 
-				XSSFCell cell=rows.getCell(col);
+				XSSFCell cell = rows.getCell(col);
 
-				switch(cell.getCellType()) { //which type of dataType
-					//String
+				switch (cell.getCellType()) { // which type of dataType
+				// String
 				case STRING:
 					System.out.print(cell.getStringCellValue());
 					break;
 
-					//Number
+				// Number
 				case NUMERIC:
-					double d=cell.getNumericCellValue();
-					int value=(int) d;
+					double d = cell.getNumericCellValue();
+					int value = (int) d;
 					System.out.print(value);
 					break;
 
-					//Boolean
+				// Boolean
 				case BOOLEAN:
 					System.out.print(cell.getBooleanCellValue());
 					break;
 
 				default:
 					System.out.print("Invalid Data");
-					break;				
+					break;
 				}
-				System.out.print("  ||  ");					
+				System.out.print("  ||  ");
 			}
-			System.out.println();			
+			System.out.println();
 		}
 	}
 
